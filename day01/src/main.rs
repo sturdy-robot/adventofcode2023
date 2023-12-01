@@ -17,7 +17,6 @@ fn part1(input: &str) -> String {
 fn part2(input: &str) -> String {
     let digits = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     let result = input.lines().map(|line| {
-        let original_line = line.to_string();
         let mut line = line.to_string();
         for (i, digit) in digits.iter().enumerate() {
             if line.starts_with(digit) {
