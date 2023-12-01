@@ -19,13 +19,7 @@ fn part2(input: &str) -> String {
     let result = input.lines().map(|line| {
         let mut line = line.to_string();
         for (i, digit) in digits.iter().enumerate() {
-            if line.starts_with(digit) {
-                line = line.replace(digit, &(i + 1).to_string());
-            } else if line.ends_with(digit) {
-                line = line.replace(digit, &(i + 1).to_string());
-            } else {
-                line = line.replace(digit, format!("{}{}{}", digit, i + 1, digit).as_str())
-            }
+            line = line.replace(digit, format!("{}{}{}", digit, i + 1, digit).as_str())
         }
         let d = line.chars().filter(|c| c.is_ascii_digit()).collect::<String>();
         let number = d.chars().nth(0).unwrap().to_string() + &d.chars().last().unwrap().to_string();
