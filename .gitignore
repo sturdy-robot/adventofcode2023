@@ -1,0 +1,9 @@
+**/target
+**/Cargo.lock
+**/debug
+**/*rs.backup
+*.pdb
+**/.idea
+.DS_Store
+**/input.txt
+**/.vscode
