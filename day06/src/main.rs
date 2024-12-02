@@ -66,17 +66,15 @@ fn part2(input: &str) -> String {
         .replace(" ", "")
         .parse::<i64>();
 
-    let mut total_ways_to_win = vec![];
+    let mut result = 0;
     for (t, d) in time.iter().zip(distance.iter()) {
         for i in 0..*t {
             let total_distance = (t - i) * i;
             if total_distance > *d {
-                total_ways_to_win.push(total_distance);
+                result += 1;
             }
         }
     }
-
-    let result = total_ways_to_win.len();
     result.to_string()
 }
 
