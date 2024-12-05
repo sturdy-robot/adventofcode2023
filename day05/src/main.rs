@@ -1,5 +1,5 @@
-use std::cmp::{max, min};
 use itertools::Itertools;
+use std::cmp::{max, min};
 
 fn main() {
     let input = include_str!("../input.txt");
@@ -59,7 +59,7 @@ fn part2(input: &str) -> String {
     let seeds_block = blocks_iter.next().unwrap();
     let blocks = blocks_iter.collect::<Vec<_>>();
 
-    let mut inputs: Vec<i64> = seeds_block
+    let inputs: Vec<i64> = seeds_block
         .split(":")
         .nth(1)
         .unwrap()
@@ -75,7 +75,10 @@ fn part2(input: &str) -> String {
     for block in blocks {
         let mut ranges = vec![];
         for line in block.lines().skip(1) {
-            let range: Vec<i64> = line.split_whitespace().map(|x| x.parse::<i64>().unwrap()).collect();
+            let range: Vec<i64> = line
+                .split_whitespace()
+                .map(|x| x.parse::<i64>().unwrap())
+                .collect();
             ranges.push((range[0], range[1], range[2]));
         }
 
